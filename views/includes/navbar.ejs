@@ -1,0 +1,85 @@
+<style>
+  .search{
+    align-self: center;
+  }
+  .search input{
+    border-radius: 1rem;
+    width: 16rem;
+    height: 2rem;
+    text-align: center;
+  }
+
+  .search button{
+    border-radius: 1rem;
+    height: 2rem;
+    width: 7.2rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #FFFF;
+    background-color: #fe424d;
+  }
+
+  .search button:hover{
+    /* border-radius: 1rem;
+    height: 2rem;
+    width: 7.2rem;
+    text-align: center;
+    font-size: 0.9rem; */
+    opacity: 0.7;
+    color: #FFFF;
+    background-color: #fe424d;
+  }
+</style>
+
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+
+  <div class="container-fluid">
+    <div class="compass-home">
+      <div class="compass">
+      <a class="navbar-brand" href="/listings"><i class="fa-solid fa-compass"></i></a>
+      </div>
+      <div class="home">
+        <a class="nav-link active navbar-brand" href="/listings"><b>Home</b></a>
+      </div>
+    </div>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="offcanvas offcanvas-end"  id="offcanvasNavbar" >
+      <div class="offcanvas-header">
+        <a class="nav-link active offcanvas-title" id="offcanvasNavbarLabel" href="/listings">Explore</a>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+
+      <div class="offcanvas-body">
+        <div class="search">
+        <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search destinations" aria-label="Search"/>
+            <button class="btn " type="submit"><i class="fa-solid fa-magnifying-glass"></i>&nbsp;Search</button>
+          </form>
+        </div>
+
+        <div class="navbar-nav ms-auto">
+
+          <a class="nav-link active" href="/listings/new">Airbnb your home</a>
+          <% if(!userInfo){ %>
+          <a class="nav-link "  href="/signup"><b>Sign Up</b></a>
+          <a class="nav-link" href="/login"><b>Log in</b></a>
+          <% } %>
+
+          <% if(userInfo){ %>
+          <a class="nav-link" href="/logout"><b>Log out</b></a>
+          <% } %>
+        </div>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</nav>
+
+
+
