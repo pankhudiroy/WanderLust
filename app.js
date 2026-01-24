@@ -87,6 +87,14 @@ app.get("/", (req, res)=>{
     res.render("listings/root.ejs");
 })
 
+app.get("/privacy", (req,res)=>{
+    res.render("footer/privacy.ejs");
+})
+app.get("/terms", (req, res) => {
+  res.render("footer/terms.ejs");
+});
+
+
 app.listen(8080, ()=>{
     console.log("server is listening to port 8080");
 })
