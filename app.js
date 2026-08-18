@@ -38,29 +38,39 @@ app.use((err, req, res, next)=>{
 });
 
 
-const store= MongoStore.create({
-    mongoUrl: process.env.ATLASDB_URL,
-    crypto: {
-        secret: process.env.SECRET,
-    },
-    touchAfter: 24* 3600,
-})
-
-// store.on(err, ()=>{
-//     console.log("Error in MONGO SESSION STORE", err);
+// const store= MongoStore.create({
+//     mongoUrl: process.env.ATLASDB_URL,
+//     crypto: {
+//         secret: process.env.SECRET,
+//     },
+//     touchAfter: 24* 3600,
 // })
-//express session
+// app.use(session({
+//     store,
+//     secret: process.env.SECRET,
+//     resave: false,
+//     saveUninitialized: true,
+//     cookie: {
+//         expires: Date.now()+ 3*24*60*60*1000,
+//         maxAge: 3*24*60*60*1000,
+//         httpOnly: true,
+//     }
+// }));
+
 app.use(session({
-    store,
-    secret: process.env.SECRET,
-    resave: false,
-    saveUninitialized: true,
-    cookie: {
-        expires: Date.now()+ 3*24*60*60*1000,
-        maxAge: 3*24*60*60*1000,
-        httpOnly: true,
-    }
+  secret: process.env.SECRET, 
+  resave: false,
+  saveUninitialized: false,
+  store: MongoStore.create({
+    mongoUrl: process.env.ATLASDB_URL,
+    collectionName: "sessions",
+    // crypto: {
+    //   secret: process.env.SECRET 
+    // }
+  }),
+  cookie: { maxAge: 1000 * 60 * 60 * 24 } 
 }));
+
 app.use(flash());
 
 app.use(passport.initialize());
