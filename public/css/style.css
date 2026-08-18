@@ -25,14 +25,35 @@ main {
     justify-content: space-between;
 }
 
+.compass{
+    display: flex;
+    align-items: center;
+    /* flex-direction: column; */
+    margin-right: 6px;
+}
+
+.compass p{
+    margin-bottom: 1px;
+    color: #fe424d;
+}
+
 .container-fluid{
     justify-content: space-between;
 }
 
 
-.fa-compass {
+.fa-magnet, .fa-waze, .fa-route{
     color: #fe424d;
     font-size: 2rem;
+}
+
+.fa-location-dot{
+    color: #fe424d;
+    margin-left: 0;
+}
+
+.waze{
+    margin-right: 2px;
 }
 
 .compass-home{
@@ -137,4 +158,10 @@ footer{
 
 .show-btn{
     margin-right: 1.5rem;
+}
+
+@media (max-width: 897px) {
+  .home {
+    display: none;
+  }
 }

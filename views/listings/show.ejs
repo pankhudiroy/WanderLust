@@ -12,12 +12,15 @@
                 <img src="<%=listing.image.url %>" class="card-img-top" alt="listing-image">
                 <div class="card-body ">
                     <p class="card-text ">
-                        Owned by <i><%= listing.owner.username %></i>
-                        <br>
+                        Owned by @<i><%= listing.owner.username %></i>
+                        <br><br>
                         <%= listing.description%>
-                        <br>
+                        <br><br>
                         &#8377; <%= listing.price ? listing.price.toLocaleString("en-IN") : "N/A" %> / night
                         <br>
+                        <!-- <i class="fa-solid fa-user-group"></i> -->
+                        <p><i class="fa-solid fa-user-group"></i> Accommodates up to 4 guests</p>
+                        <i class="fa-solid fa-location-dot"></i>
                         <%= listing.location%>,&nbsp;
                         <%= listing.country%>
                     </p>
@@ -71,7 +74,7 @@
                     <% } %>
 
                     <br>
-                    <%  if(userInfo && listing.reviews.length){ %>
+                    <%  if(listing.reviews.length){ %>
                     <h6>All reviews</h6>
                     <div class="row row-cols-lg-2 row-cols-md-2 row-cols-sm-1 m-1" >
                     <% for(let review of listing.reviews){ %>
@@ -81,7 +84,7 @@
                             <p class="card-text"><%= review.comment %></p>
                             <p class="starability-result" data-rating=<%= review.rating %>></p>
                             
-                            <% if(userInfo._id.equals(review.author._id)) { %>
+                            <% if(userInfo && userInfo._id.equals(review.author._id)) { %>
                             <form method="post" action="/listings/<%=listing._id%>/reviews/<%=review._id %>/?_method=delete">
                                 <button type="submit" class="btn btn-dark btn-sm mb-2">Delete</button>
                             </form>
