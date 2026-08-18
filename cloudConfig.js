@@ -11,7 +11,7 @@ cloudinary.config({
 const storage = new CloudinaryStorage({
   cloudinary: cloudinary,
   params: {
-    folder: 'wanderlust',
+    folder: 'Stayzy',
     allowedFormat: ["jpeg", "png", "jpeg"],
   },
 });

@@ -1,4 +1,4 @@
-# 🌍 Wanderlust
+# 🌍 Stayzy
 
 A full‑stack web application for exploring and managing travel listings. Built with the MERN stack and deployed on Render.
 
