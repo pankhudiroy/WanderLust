@@ -31,23 +31,23 @@ const listSchema = new mongoose.Schema({
     country:{
         type: String,
     },
-    // category: {
-    //     type: String,
-    //     enum: [
-    //     'Trending',
-    //     'Rooms',
-    //     'Mountains',
-    //     'Iconic Cities',
-    //     'Castles',
-    //     'Amazing Pools',
-    //     'Camping',
-    //     'Farms',
-    //     'Arctic',
-    //     'Domes',
-    //     'Boats'
-    //     ],
-    //     default: 'Trending'
-    // },
+    category: {
+        type: String,
+        enum: [
+        'Trending',
+        'Rooms',
+        'Mountains',
+        'Iconic Cities',
+        'Castles',
+        'Amazing Pools',
+        'Camping',
+        'Farms',
+        'Arctic',
+        'Domes',
+        'Boats'
+        ],
+        default: 'Trending'
+    },
     reviews:[{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Review",

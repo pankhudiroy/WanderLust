@@ -38,17 +38,44 @@
                     <input type="file" class="form-control" name="image" placeholder="Enter image URL/link." required>
                 </div>
 
+                <div class="mb-3">
+                <label for="category" class="form-label">Category</label>
+                <select name="category" id="category" class="form-control" required>
+                    <option value="Trending">Trending</option>
+                    <option value="Rooms">Rooms</option>
+                    <option value="Mountains">Mountains</option>
+                    <option value="Iconic Cities">Iconic Cities</option>
+                    <option value="Castles">Castles</option>
+                    <option value="Amazing Pools">Amazing Pools</option>
+                    <option value="Camping">Camping</option>
+                    <option value="Farms">Farms</option>
+                    <option value="Arctic">Arctic</option>
+                    <option value="Domes">Domes</option>
+                    <option value="Boats">Boats</option>
+                </select>
+                <div class="valid-feedback">Looks good!</div>
+                <div class="invalid-feedback">Please select a category!</div>
+                </div>
+
                 <div class="row">
-                    <div class="mb-4 col-md-4">
+                   <div class="mb-4 col-md-4">
                         <label for="price" class="form-label">Price</label>
-                        <input type="text" class="form-control" name="price" placeholder="1200" required>
+                        <input
+                            type="text"
+                            class="form-control"
+                            name="price"
+                            placeholder="1200"
+                            pattern="[0-9]+"
+                            inputmode="numeric"
+                            required
+                        >
                         <div class="valid-feedback">
-                           Looks good!
+                            Looks good!
                         </div>
                         <div class="invalid-feedback">
-                            Please enter a valid price!
+                            Please enter numbers only for the price!
                         </div>
-                   </div>
+                    </div>
 
                     <div class="mb-4 col-md-8">
                         <label for="country" class="form-label">Country</label>
